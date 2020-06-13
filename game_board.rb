@@ -9,7 +9,6 @@ class GameBoard
   def build_board(array)
     @array = array
     puts "#{@@player_details['name']} vs #{@@player_details['name2']}"
-    # color_board(@array)
     a, b, c, d, e, f, g, h, i = color_board(@array)
     puts <<-BOARD
            #{a}  | #{b}  | #{c} 
