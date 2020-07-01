@@ -17,7 +17,7 @@ class GameBoard
           ----|----|----
            #{g}  | #{h}  | #{i} 
     BOARD
-    puts ""
+    puts ''
   end
 
   def check_wins(name)
@@ -31,26 +31,27 @@ class GameBoard
       j += 3
       i += 1
     end
-   if @array[0] == @array[4] && @array[0] == @array[8]#diagonals
+   if @array[0] == @array[4] && @array[0] == @array[8] # diagonals
     puts "#{name}'s the winner".green
-    return true 
+    true
    elsif @array[2] == @array[4] && @array[2] == @array[6]
     puts "#{name}'s the winner".green
-    return true 
-   elsif @array.all? {|item| /\D/ =~ item}
-    puts "Stalemate".blue
-    return true
+    true
+   elsif @array.all? { |item| /\D/ =~ item }
+    puts 'Stalemate'.blue
+    true
    else
-    return false
+    false
    end
   end
 
   private
+
   def color_board(array)
     j = 0
     i = 0
     3.times do
-      if (array[j] == array[j+1] && array[j] == array[j+2])
+      if array[j] == array[j+1] && array[j] == array[j+2]
        array[j] = array[j].green
        array[j+1] = array[j+1].green
        array[j+2] = array[j+2].green
@@ -58,22 +59,22 @@ class GameBoard
       j += 3
     end
     3.times do
-      if (array[i] == array[i+3] && array[i] == array[i+6])
+      if array[i] == array[i+3] && array[i] == array[i+6]
        array[i] = array[i].green
        array[i+3] = array[i+3].green
        array[i+6] = array[i+6].green
       end
       i += 1
     end
-   if array[0] == array[4] && array[0] == array[8] #diagonals
+   if array[0] == array[4] && array[0] == array[8] # diagonals
     array[0] = array[0].green
     array[4] = array[4].green
     array[8] = array[8].green
    elsif array[2] == array[4] && array[2] == array[6]
     array[2] = array[2].green
     array[4] = array[4].green
-    array[6] = array[6].green 
+    array[6] = array[6].green
    end
-   return array
+   array
   end
 end

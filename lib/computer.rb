@@ -3,14 +3,12 @@ class Computer
     require_relative 'game_plays'
     require_relative 'player'
     require_relative 'check_for_two_equal_cells'
-    game_play = GamePlays.new()
     include CheckForTwoEqualCells
     
   def initialize(name, tag, difficulty)
     @name = name
     @tag = tag
     @difficulty = difficulty
-    game_play = GamePlays.new()
     @@player_details = GamePlays.plays
     @@player_board_play = GamePlays.game_tags_method
   end
@@ -28,10 +26,11 @@ class Computer
     GamePlays.game_tags_method = @@player_board_play
     board.build_board(@@player_board_play)
     break_when_winner = board.check_wins(@name)
-    return break_when_winner
+    break_when_winner
   end
 
   private
+
   def move_beginner
     loop do
       random = rand(9)
@@ -46,48 +45,42 @@ class Computer
   end
 
   def move_intermediate
-    if object_tag_is_first_priority(@@player_board_play, @tag).length == 0
-      if two_equal_cells(@@player_board_play).length == 0
+    if object_tag_is_first_priority(@@player_board_play, @tag).length.zero?
+      if two_equal_cells(@@player_board_play).length.zero?
         move_beginner
-        return
       else
         puts "#{@name} is thinking..."
         sleep(rand(3))
         index = two_equal_cells(@@player_board_play).sample
         @@player_board_play[index] = @tag
-        return
       end
     else 
         puts "#{@name} is thinking..."
         sleep(rand(3))
         index = object_tag_is_first_priority(@@player_board_play, @tag).sample
         @@player_board_play[index] = @tag
-        return
-     end
+    end
  end
 
   def move_expert
-    if object_tag_is_first_priority(@@player_board_play, @tag).length == 0
-      if two_equal_cells(@@player_board_play).length == 0
+    if object_tag_is_first_priority(@@player_board_play, @tag).empty?
+      if two_equal_cells(@@player_board_play).empty?
         if @@player_board_play[4] == '5'
           @@player_board_play[4] = @tag
           return
         end
         move_beginner
-        return
       else
         puts "#{@name} is thinking..."
         sleep(rand(3))
         index = two_equal_cells(@@player_board_play).sample
         @@player_board_play[index] = @tag
-        return
       end
     else 
         puts "#{@name} is thinking..."
         sleep(rand(3))
         index = object_tag_is_first_priority(@@player_board_play, @tag).sample
         @@player_board_play[index] = @tag
-        return
-     end
+    end
   end
 end

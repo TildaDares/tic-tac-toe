@@ -25,7 +25,7 @@ class GamePlays
 
       ######################### Game Modes ############################
       loop do
-        puts "Pick a game (select 1, 2 or 3)"
+        puts 'Pick a game (select 1, 2 or 3)'
         puts <<-OPTIONS
         1. Human vs Computer
         2. Human vs Human
@@ -42,7 +42,7 @@ class GamePlays
       ######################### Player Names ############################3
       loop do
         if @game_options == '1'
-          puts "Enter your name"
+          puts 'Enter your name'
           player_name = gets.chomp
           if player_name.length != 0
             @@player_game_plays['name'] = player_name
@@ -50,21 +50,21 @@ class GamePlays
             break
           end
         elsif @game_options == '2'
-          puts "Enter your name"
+          puts 'Enter your name'
           player_name = gets.chomp
-          while player_name.length == 0
-            puts "Enter a valid name"
+          while player_name.length.empty?
+            puts 'Enter a valid name'
             player_name = gets.chomp
           end
 
           puts "Enter player 2's name"
           player_name2 = gets.chomp
-          while player_name2.length == 0
-            puts "Enter a valid name"
+          while player_name2.length.empty?
+            puts 'Enter a valid name'
             player_name2 = gets.chomp
           end
 
-          if player_name.length != 0 && player_name2.length != 0
+          unless player_name.length.empty? && player_name2.length.empty?
             @@player_game_plays['name'] = player_name
             @@player_game_plays['name2'] = player_name2
             break
@@ -76,15 +76,16 @@ class GamePlays
           @@player_game_plays['tag1'] = 'O'
           break
         end
-       end
+      end
   
        ######################### Difficulty Level ############################3
       loop do
         break if @game_options == '2'
+
         correct_option = true
-        if @game_options == '3' 
+        if @game_options == '3'
           while correct_option
-            puts "How smart is computer 1?"
+            puts 'How smart is computer 1?'
             puts <<-OPTIONS
             1. Dumb
             2. Smart
@@ -99,7 +100,7 @@ class GamePlays
           end
 
           while correct_option
-            puts "How smart is computer 2?"
+            puts 'How smart is computer 2?'
             puts <<-OPTIONS
             1. Dumb
             2. Smart
@@ -115,7 +116,7 @@ class GamePlays
           break
         end
 
-          puts "Pick a difficulty level"
+          puts 'Pick a difficulty level'
           puts <<-OPTIONS
           1. Beginner
           2. Intermediate
@@ -132,13 +133,14 @@ class GamePlays
       ######################### Game Markers ############################3
       loop do
         break if @game_options == '3'
-        puts "Player 1 pick a tag (X or O)"
+
+        puts 'Player 1 pick a tag (X or O)'
         tag = gets.chomp
-        if /^[xo]$/i.match(tag) != nil
+        unless /^[xo]$/i.match(tag).nil?
           @@player_game_plays['tag'] = tag.upcase
           /^x$/i =~ tag ? @@player_game_plays['tag1'] = 'O' : @@player_game_plays['tag1'] = 'X'
           break
        end
-     end
-   end
- end
+      end
+    end
+end

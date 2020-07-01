@@ -21,27 +21,27 @@ module CheckForTwoEqualCells
       possible_plays.push(3)
     elsif (array[2] == array[4] || array[8] == array[7]) && array[6] == '7'
       possible_plays.push(6)
-     end
-     return possible_plays
+    end
+    possible_plays
   end
 
   def object_tag_is_first_priority(array, tag)
     possible_plays = []
-       if array[0] == array[1] && array[0] == tag && array[2] == '3'
+      if array[0] == array[1] && array[0] == tag && array[2] == '3'
         possible_plays.push(2)
-       elsif array[3] == array[4] && array[3] == tag && array[5] == '6'
+      elsif array[3] == array[4] && array[3] == tag && array[5] == '6'
         possible_plays.push(5)
-       elsif array[6] == array[7] && array[6] == tag && array[8] == '9'
+      elsif array[6] == array[7] && array[6] == tag && array[8] == '9'
         possible_plays.push(8)
-       elsif array[0] == array[3] && array[0] == tag && array[6] == '7'
+      elsif array[0] == array[3] && array[0] == tag && array[6] == '7'
         possible_plays.push(6)
-       elsif array[1] == array[4] && array[1] == tag && array[7] == '8'
+      elsif array[1] == array[4] && array[1] == tag && array[7] == '8'
         possible_plays.push(7)
-       elsif array[2] == array[5] && array[2] == tag && array[8] == '9'
+      elsif array[2] == array[5] && array[2] == tag && array[8] == '9'
         possible_plays.push(8)
-       elsif array[0] == array[4] && array[0] == tag && array[8] == '9'
+      elsif array[0] == array[4] && array[0] == tag && array[8] == '9'
         possible_plays.push(8)
-       elsif array[2] == array[4] && array[2] == tag && array[6] == '7'
+      elsif array[2] == array[4] && array[2] == tag && array[6] == '7'
         possible_plays.push(6)
       elsif array[0] == array[2] && array[0] == tag && array[1] == '2'
         possible_plays.push(1)
@@ -76,6 +76,6 @@ module CheckForTwoEqualCells
       elsif array[4] == array[6] && array[4] == tag && array[2] == '3'
         possible_plays.push(2)
       end
-        return possible_plays
+    possible_plays
   end
 end

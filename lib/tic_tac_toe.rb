@@ -4,8 +4,8 @@ class TicTacToe
   require_relative 'player'
   require_relative 'computer'
 
-  game = GamePlays.new()
-    game.game_preambles()
+  game = GamePlays.new
+    game.game_preambles
     @player_details = GamePlays.plays
     @player_board_play = GamePlays.game_tags_method
     board = GameBoard.new(@player_details)
@@ -27,18 +27,21 @@ class TicTacToe
       if @player_details['options'] == 'Human vs Human'
         break_when_winner = player1.move
         break if break_when_winner
+
         break_when_winner = player2.move
         break if break_when_winner
       elsif @player_details['options'] == 'Human vs Computer'
         break_when_winner = player1.move
         break if break_when_winner
+
         break_when_winner = computer1.move
         break if break_when_winner
       else
         break_when_winner = computer1.move
         break if break_when_winner
+
         break_when_winner = computer2.move
         break if break_when_winner
       end
-end
+    end
 end
