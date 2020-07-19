@@ -1,10 +1,12 @@
+# frozen_string_literal :true
+
 class Computer
-    require_relative 'game_board'
-    require_relative 'game_plays'
-    require_relative 'player'
-    require_relative 'check_for_two_equal_cells'
-    include CheckForTwoEqualCells
-    
+  require_relative 'game_board'
+  require_relative 'game_plays'
+  require_relative 'player'
+  require_relative 'check_for_two_equal_cells'
+  include CheckForTwoEqualCells
+
   def initialize(name, tag, difficulty)
     @name = name
     @tag = tag
@@ -54,11 +56,11 @@ class Computer
         index = two_equal_cells(@@player_board_play).sample
         @@player_board_play[index] = @tag
       end
-    else 
-        puts "#{@name} is thinking..."
-        sleep(rand(3))
-        index = object_tag_is_first_priority(@@player_board_play, @tag).sample
-        @@player_board_play[index] = @tag
+    else
+      puts "#{@name} is thinking..."
+      sleep(rand(3))
+      index = object_tag_is_first_priority(@@player_board_play, @tag).sample
+      @@player_board_play[index] = @tag
     end
  end
 
@@ -76,11 +78,11 @@ class Computer
         index = two_equal_cells(@@player_board_play).sample
         @@player_board_play[index] = @tag
       end
-    else 
-        puts "#{@name} is thinking..."
-        sleep(rand(3))
-        index = object_tag_is_first_priority(@@player_board_play, @tag).sample
-        @@player_board_play[index] = @tag
+    else
+      puts "#{@name} is thinking..."
+      sleep(rand(3))
+      index = object_tag_is_first_priority(@@player_board_play, @tag).sample
+      @@player_board_play[index] = @tag
     end
   end
 end

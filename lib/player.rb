@@ -1,6 +1,6 @@
 class Player
-    require_relative 'game_plays'
-    require_relative 'game_board'
+  require_relative 'game_plays'
+  require_relative 'game_board'
 
   def initialize(name, tag)
     @name = name
